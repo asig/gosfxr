@@ -374,6 +374,20 @@ func (a *AppWindow) updateGeneratedSampleImage(sample []float64) {
 	for idx, _ := range imgdata {
 		imgdata[idx] = 255
 	}
+
+	// find min/max so that we can scale appropriately
+	minS := 1.0
+	maxS := -1.0
+	for _, s := range sample {
+		if s < minS {
+			minS = s
+		}
+		if s > maxS {
+			maxS = s
+		}
+	}
+	scale := 2.0/(maxS - minS)
+
 	bufstep := float64(len(sample)) / float64(w)
 	for x := 0; x < w; x++ {
 		// Interpolate all values
@@ -387,7 +401,13 @@ func (a *AppWindow) updateGeneratedSampleImage(sample []float64) {
 		}
 		s /= float64(d)
 
-		y := int((s + 1) * float64(h) / 2.0)
+		y := int((scale * s + 1) * float64(h-1))  / 2
+		if y < 0 {
+			y = 0
+		}
+		if y >= h {
+			y = h - 1
+		}
 		imgdata[y*stride+3*x+0] = 0
 		imgdata[y*stride+3*x+1] = 0
 		imgdata[y*stride+3*x+2] = 0
