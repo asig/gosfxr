@@ -733,8 +733,8 @@
                                                 <property name="hexpand">True</property>
                                                 <property name="vexpand">False</property>
                                                 <property name="adjustment">adj_envelope_attack</property>
-                                                <property name="show-fill-level">True</property>
                                                 <property name="round-digits">1</property>
+                                                <property name="draw-value">False</property>
                                                 <property name="value-pos">right</property>
                                               </object>
                                               <packing>
@@ -1215,6 +1215,7 @@
                                                 <property name="can-focus">True</property>
                                                 <property name="adjustment">adj_freq_start</property>
                                                 <property name="round-digits">1</property>
+                                                <property name="draw-value">False</property>
                                               </object>
                                               <packing>
                                                 <property name="left-attach">1</property>
@@ -1238,8 +1239,8 @@
                                                 <property name="visible">True</property>
                                                 <property name="can-focus">True</property>
                                                 <property name="adjustment">adj_freq_min_cutoff</property>
-                                                <property name="show-fill-level">True</property>
                                                 <property name="round-digits">1</property>
+                                                <property name="draw-value">False</property>
                                               </object>
                                               <packing>
                                                 <property name="left-attach">1</property>
@@ -1265,6 +1266,7 @@
                                                 <property name="hexpand">True</property>
                                                 <property name="adjustment">adj_freq_slide</property>
                                                 <property name="round-digits">1</property>
+                                                <property name="draw-value">False</property>
                                               </object>
                                               <packing>
                                                 <property name="left-attach">1</property>
